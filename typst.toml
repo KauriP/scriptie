@@ -8,4 +8,4 @@ description = "A template for movie scripts."
 repository = "https://github.com/KauriP/scriptie"
 disciplines = ["film"]
 keywords = ["film", "movie", "screenplay", "script", "screenwriting"]
-# exclude = ["*.pdf"]
+exclude = ["update-typst-packages.nu", "*.pdf"]
