@@ -69,4 +69,18 @@ do eiusmod tempor incididunt ut labore et dolore magnam
 aliquam quaerat voluptatem. Ut enim aeque doleamus animo,
 cum corpore dolemus, fieri.
 
+```
+Here be raw text.
+ It can be formatted
+stuff
+more
+even more
+and more
+aaannd more
+aannnd more
+  exactly as you please.
+   (though it will be centered.)
+    (unless you add a bunch of spaces to the start/end of the line, and make it long that way)
+```
+
 - The end.

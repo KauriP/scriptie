@@ -31,6 +31,8 @@
     })<scriptie-speaker>
 ]
 
+#let sign(content) = align(center,block(breakable:false, width:100cm, content))
+
 #let dialogue(speaker,..extensions, line) = {
 // This is a bit hacky...
 let c = counter("scriptie-contd")
@@ -109,6 +111,7 @@ grid.header("",head, repeat:true),
   }
   show "…": "..."
   show "–": "--"
+  show raw: sign
   document
 }
 

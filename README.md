@@ -33,7 +33,7 @@ Roadmap:
   - [x] Which elements should be numbered
   - [x] Customise margins & other geometry
 - [ ] Implement side-by-side dialog
-- [ ] Implement
+- [x] Implement
   - ```
     TEXT SIGNS
     IN SCRIPT
