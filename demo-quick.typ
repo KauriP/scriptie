@@ -1,5 +1,5 @@
 #import "scriptie.typ":*
-#show: script
+#show: qscript
 
 #titlepage(
   title:[Lorem],
@@ -9,9 +9,9 @@
   subtitle:"subtitle"
 )
 
-#part[Lorem]
+= Hot stuff
 
-#scene[Int. Place - Time.]
+== Int. Place - Time.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
 do eiusmod tempor incididunt ut labore et dolore magnam
@@ -22,29 +22,29 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
 do eiusmod tempor incididunt ut labore et dolore magnam
 aliquam quaerat.
 
-#dialogue([Speaker 1], "V.O.")[Lorem ipsum dolor sit amet.]
+/ Speaker 1 (V.O.): Lorem ipsum dolor sit amet.
 
-#dialogue([Speaker 2])[#pa[Lorem ipsum dolor sit.] Lorem ipsum dolor sit amet,
+/ Speaker 2: (Lorem ipsum dolor sit.) Lorem ipsum dolor sit amet,
             consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore
             et dolore magnam aliquam quaerat. (Lorem.)
-            Lorem ipsum dolor sit amet.]
+            Lorem ipsum dolor sit amet.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
 do eiusmod tempor incididunt ut labore et dolore magnam
 aliquam quaerat voluptatem. Ut enim aeque doleamus animo,
 cum corpore dolemus, fieri. Dolores. Lelel
 
-#transition[Transition:]
+- Transition:
 
-#scene[Ext. Place - Time.]
+== Ext. Place - Time.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
 do eiusmod tempor incididunt ut labore et dolore magnam
 aliquam quaerat voluptatem. Ut enim aeque doleamus animo,
 cum corpore dolemus, fieri.
 
-#dialogue([Speaker 12], "V.O.")[Lorem ipsum dolor sit amet,
+/ Speaker 12 (V.O.): Lorem ipsum dolor sit amet,
   consectetur adipiscing elit, sed do
   eiusmod tempor incididunt ut labore
   et dolore magnam aliquam quaerat
@@ -63,14 +63,12 @@ cum corpore dolemus, fieri.
   tamen permagna accessio potest, si
   aliquod aeternum et infinitum
   impendere.
-]
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
 do eiusmod tempor incididunt ut labore et dolore magnam
 aliquam quaerat voluptatem. Ut enim aeque doleamus animo,
 cum corpore dolemus, fieri.
 
-#sign(
 ```
 Lorem ipsum dolor sit amet,
  consectetur adipiscing elit, sed do
@@ -82,30 +80,5 @@ Lorem ipsum dolor sit amet,
        aliquod aeternum et infinitum
         impendere.
 ```
-)
 
-#transition[The end.]
-#plainpage(margin:1cm,```
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-do eiusmod tempor incididunt ut labore et dolore magnam
-aliquam quaerat voluptatem. Ut enim aeque doleamus animo,
-cum corpore dolemus, fieri. Dolores. Lelel
-Lorem ipsum dolor sit amet,
- consectetur adipiscing elit, sed do
-  eiusmod tempor incididunt ut labore
-   et dolore magnam aliquam quaerat
-    voluptatem. Ut enim aeque doleamus
-     animo, cum corpore dolemus, fieri
-      tamen permagna accessio potest, si
-       aliquod aeternum et infinitum
-        impendere.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-do eiusmod tempor incididunt ut labore et dolore magnam
-aliquam quaerat voluptatem. Ut enim aeque doleamus animo,
-cum corpore dolemus, fieri. Dolores. Lelel
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-do eiusmod tempor incididunt ut labore et dolore magnam
-aliquam quaerat voluptatem. Ut enim aeque doleamus animo,
-cum corpore dolemus, fieri. Dolores. Lelel
-```)
+- The end.

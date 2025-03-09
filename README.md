@@ -1,13 +1,13 @@
 *Scriptie* is a small Typst template to create standard format movie scripts.
 It has title pages, scene loglines, action, dialogue, parentheticals, transitions and more.
 
-In addition, Scriptie optionally features a hackish abuse of Typst's numbered and unnumbered lists and headings for a very efficient screenwriting experience.
+In addition, Scriptie optionally features a hackish abuse of Typst's syntax for a very efficient screenwriting experience.
 
 ```typst
 #import "@preview/scriptie:0.1.0":*
-#show quick_script
+#show qscript
 
-= INT. TYPST UNIVERSE - RIGHT NOW.
+== INT. TYPST UNIVERSE - RIGHT NOW.
 
 A curious Typst user is checking out the Scriptie template.
 
@@ -38,9 +38,8 @@ Roadmap:
     TEXT SIGNS
     IN SCRIPT
     ```
-- [ ] Implement simple graphics for title-page
 - [x] Implement raw pages with just typewriter input
-- [ ] Add translations
+- [x] Add translations
   - places
     - Contd
     - == Part N: XXX ==
@@ -48,8 +47,8 @@ Roadmap:
     - titlepage date?
     - titlepage "Unnamed screenplay"
     - titlepage keywords?
-  - [ ] English
-  - [ ] Finnish
+  - [x] English
+  - [x] Finnish
 - [ ] Write documentation for all functionality
 - [x] Write examples you are allowed to share
-- [ ] Write packaging TOML
+- [x] Write packaging TOML

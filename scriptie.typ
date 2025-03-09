@@ -1,6 +1,9 @@
-#let titlepage(title: "Unnamed screenplay", author:(), version:none, contact: none, subtitle: none) = {
+#import "translations.typ": translations
+
+/// Titlepage for the script
+#let titlepage(title: context translations.at(text.lang, default: translations.default).default-title, author:(), version:none, contact: none, subtitle: none, date: none) = context {
   set page(foreground: none)
-  set document(title: title, author: author, keywords: ("film","movie","screenplay","script"))
+  set document(title: title, author: author, keywords: translations.at(text.lang, default:translations.default).file-keywords)
   set par(leading: 0em)
   align(center+horizon)[
   #v(1fr)
@@ -12,7 +15,13 @@
   #author.join("\n")
   #v(0.5em)
   #if version != none [#version\ ]
-  #datetime.today().display()
+  #if date == none {
+  datetime.today().display(translations.at(text.lang, default:translations.default).date-format)
+  } else if type(date) == datetime {
+  date.display(translations.at(text.lang).date-format)
+  } else {
+    date
+  }
   #v(0.5em)
   #subtitle
   #v(1fr)
@@ -22,6 +31,7 @@
   counter(page).update(1)
 }
 
+/// Parenthetical within a line of dialogue
 #let pa(body) = [#[(#body)]<scriptie-parenthetical>]
 
 #let _speaker(name,..extension) = [
@@ -31,15 +41,16 @@
     })<scriptie-speaker>
 ]
 
+/// Centered "text sign" or "ASCII art" in the script
 #let sign(content) = align(center,block(breakable:false, width:100cm, content))
 
+/// Dialogue. Extensions (e.g. V.O.) can be added after the speaker/character before the line being spoken
 #let dialogue(speaker,..extensions, line) = {
-// This is a bit hacky...
 let c = counter("scriptie-contd")
 c.update(0)
 let head = context {
   c.step()
-  _speaker(speaker, ..(if c.get().first() != 0 {([CONT'D],)} else {()})+extensions.pos())
+  _speaker(speaker, ..(if c.get().first() != 0 {(translations.at(text.lang, default: translations.default).contd,)} else {()})+extensions.pos())
 }
 show grid: set block(spacing: 1em)
 show grid.cell: set block(spacing: 0pt, sticky: true)
@@ -50,29 +61,35 @@ grid.header("",head, repeat:true),
 )<scriptie-dialogue>]
 }
 
+/// Scene
 #let scene(logline) = {
     counter("scriptie-scene").step()
     let number = context numbering("1",counter("scriptie-scene").get().at(0))
     [*#number<scriptie-scene_num_l>#number<scriptie-scene_num_r>#block(sticky:true, above: 3em, below:2em, (upper(logline)))*]
 }
+
+/// Large heading to separate arcs, acts etc.
 #let part(name) = {
     counter("scriptie-part").step()
-  [#[\===== Part #(context counter("scriptie-part").get().at(0)): #name =====]<scriptie-part>]
+  [#context [\===== #(translations.at(text.lang, default: translations.default).part-title) #(counter("scriptie-part").get().at(0)): #name =====]<scriptie-part>]
 }
 
+/// Transition
 #let transition(trans) = {
   block(spacing:1em, width:100%, align(right,strong(upper(trans))))
 }
 
+/// Page with just text, optionally with different margins
 #let plainpage(content,margin:none,header:none) = {
-  let header = if header == none {margin==none} else {header}
-  set page(foreground: none) if not header
+  let do-header = if header == none {margin==none} else {header}
+  set page(foreground: none) if not do-header
   set page(margin:margin) if margin != none
   pagebreak(weak:true)
-  content
+  block(width:100cm,height:100%,content.text)
   pagebreak(weak:true)
 }
 
+/// Format the script
 #let script(document,
   size:(x:6in,y:9in),
   margin:(left:3fr,right:2fr,top:1fr,bottom:1fr),
@@ -111,10 +128,17 @@ grid.header("",head, repeat:true),
   }
   show "…": "..."
   show "–": "--"
-  show raw: sign
   document
 }
 
+/// Format the script using the following quick syntax:
+/// = Part
+/// == Scene
+/// /Character (0 or 1 extensions): (with any number of parentheticals) Line.
+/// ```
+/// PRE-FORMATTED
+///      TEXT
+/// ```
 #let qscript(
   ..args
   ) = {
@@ -133,5 +157,6 @@ grid.header("",head, repeat:true),
   }
   show heading.where(level:2): scene
   show heading.where(level:1): it => part(it.body)
+  show raw: sign
   script(..args)
 }

@@ -8,3 +8,4 @@ cd $source_dir
 let target_dir = $target_dir | path join $version
 print $"Update ($target_dir)"
 git --work-tree=($target_dir) checkout -f
+rm $"($target_dir)/update-typst-packages.nu"
