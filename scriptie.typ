@@ -1,3 +1,8 @@
+// Copyright © Kauri Pälsi 2026
+// This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+// You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>. 
+
 #import "translations.typ": translations
 
 /// Titlepage for the script
@@ -53,7 +58,8 @@ let head = context {
   _speaker(speaker, ..(if c.get().first() != 0 {(translations.at(text.lang, default: translations.default).contd,)} else {()})+extensions.pos())
 }
 show grid: set block(spacing: 1em)
-show grid.cell: set block(spacing: 0pt, sticky: true)
+// show grid.cell: set block(spacing: 0pt, sticky: true)
+show grid.cell: set block(spacing: 0pt)
 set par(spacing: 0pt, first-line-indent: 1.2em)
 [#grid(
 grid.header("",head, repeat:true),

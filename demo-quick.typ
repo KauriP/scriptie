@@ -9,7 +9,7 @@
   subtitle:"subtitle"
 )
 
-= Hot stuff
+= The beginning
 
 == Int. Place - Time.
 
@@ -22,13 +22,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
 do eiusmod tempor incididunt ut labore et dolore magnam
 aliquam quaerat.
 
-/ Speaker 1 (V.O.): Lorem ipsum dolor sit amet.
-
-/ Speaker 2: (Lorem ipsum dolor sit.) Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore
-            et dolore magnam aliquam quaerat. (Lorem.)
-            Lorem ipsum dolor sit amet.
+/ Speaker 1 (V.O.): Lorem ipsum dolor sit amet. (Lorem.)
+                    Lorem ipsum dolor sit amet.
+                    (Lorem.)
+                    Lorem ipsum dolor sit amet.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
 do eiusmod tempor incididunt ut labore et dolore magnam
