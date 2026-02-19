@@ -1,6 +1,6 @@
 #!/usr/bin/env nu
-let source_dir = "~/Documents/scriptie" | path expand
-let target_dir = "~/Documents/typst-packages/packages/preview/scriptie" | path expand
+let source_dir = pwd
+let target_dir = pwd | path join "../typst-packages/packages/preview/scriptie" | path expand
 let version = (open ($source_dir | path join typst.toml)).package.version
 cd $target_dir
 mkdir $version

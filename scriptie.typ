@@ -115,7 +115,7 @@ grid.header("",head, repeat:true),
   indent.parenthetical.at(0) -= indent.dialogue.at(0)
 
   set page(margin: margin, ..page-size)
-  let textsettings = (size:12pt, top-edge: 0.8em, bottom-edge: -0.2em, font:"Courier Prime", weight:"regular")
+  let textsettings = (size:12pt, top-edge: 0.8em, bottom-edge: -0.2em, font:("Courier Prime","Courier","DejaVu Sans Mono"), weight:"regular")
   set text(..textsettings)
   set par(leading: 0mm, spacing: 1em)
   show heading: set text(..textsettings)
