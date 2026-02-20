@@ -5,6 +5,7 @@ It has title pages, scene loglines, action, dialogue (with automatic _cont'd_ ov
 
 In addition, Scriptie optionally features a hackish abuse of Typst's syntax for a very efficient screenwriting experience.
 
+# Demo
 ```typst
 #import "@preview/scriptie:0.1.0":*
 #show: qscript
@@ -43,11 +44,15 @@ The user writes the best screenplay the world has ever seen.
 <img src="demo1.svg"/>
 <img src="demo2.svg"/>
 
-# Examples
 There's a demo showcasing all the functionalities [with the quick syntax](https://github.com/KauriP/scriptie/blob/main/demo-quick.typ)
 and [without the quick syntax](https://github.com/KauriP/scriptie/blob/main/demo.typ).
 
-# Roadmap:
+# Possible issues
+
+The preferred font to use with this package is [Courier Prime](https://quoteunquoteapps.com/courierprime/) or Courier.
+For the web app, you should drop the `.ttf` files (unzipped from the linked download) into `Files`.
+
+# Roadmap
 - [x] Refactor all formatting into nice, non-hackish commands
   - [x] Dialogue
   - [x] Bring all configurable formatting into show command
