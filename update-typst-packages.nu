@@ -11,9 +11,16 @@ let universe_import = $'#import "@preview/scriptie:($version)"'
 print $"Update ($target_dir)"
 git --work-tree=($target_dir) checkout -f
 rm $"($target_dir)/update-typst-packages.nu"
+# Update import paths to the Typst Universe ones
 for f in (ls ($target_dir | path join demo*.typ | into glob)) {
   let file = $f.name
   print $"Update import in ($file)"
   cat $file | str replace $relative_import $universe_import | save $file -f
+}
+# Remove roadmap from Typst Universe readme
+do {
+  let file = $target_dir | path join README.md
+  print $"Remove roadmap from ($file)"
+  cat $file | str replace -r "\\s# Roadmap(.|\n)*" "\n" | save $file -f
 }
 echo done
