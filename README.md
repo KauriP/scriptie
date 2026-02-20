@@ -1,4 +1,6 @@
-*Scriptie* is a small Typst package to create standard format movie scripts.
+# ***Scriptie***
+
+*Scriptie* formats your movie or tv script to the standard layout.
 It has title pages, scene loglines, action, dialogue (with automatic _cont'd_ over page breaks!), parentheticals, transitions and more.
 
 In addition, Scriptie optionally features a hackish abuse of Typst's syntax for a very efficient screenwriting experience.
