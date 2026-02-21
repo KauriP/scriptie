@@ -70,7 +70,7 @@ grid.header("",head, repeat:true),
 #let scene(logline) = {
     counter("scriptie-scene").step()
     let number = context numbering("1",counter("scriptie-scene").get().at(0))
-    [*#number<scriptie-scene_num_l>#number<scriptie-scene_num_r>#block(sticky:true, above: 3em, below:2em, (upper(logline)))*]
+    [*#block(sticky:true, above: 3em, below:2em, width:100%, [#number<scriptie-scene_num_l>#number<scriptie-scene_num_r>#upper(logline)])*]
 }
 
 /// Large heading to separate arcs, acts etc.
