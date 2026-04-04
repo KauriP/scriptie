@@ -27,5 +27,13 @@
     date-format:"[day].[month].[year]",
     file-keywords: ("elokuva","filmi","käsikirjoitus","kässäri"),
     contd: "JATK.",
-  )
+  ),
+  ru: (
+    written-by: "за авторством",
+    default-title: "Безымянный сценарий",
+    part-title: "Часть",
+    date-format:"[year]-[month]-[day]",
+    file-keywords: ("фильм","кино","сценарий"),
+    contd: "ПРОДОЛЖАЕТ",
+  ),
 )

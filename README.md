@@ -79,6 +79,7 @@ For the web app, you should drop the `.ttf` files (unzipped from the linked down
     - titlepage keywords?
   - [x] English
   - [x] Finnish
+  - [x] Russian
 - [ ] Write documentation for all functionality
 - [x] Write examples you are allowed to share
 - [x] Write packaging TOML
