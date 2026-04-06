@@ -12,7 +12,7 @@
   set par(leading: 0em)
   align(center+horizon)[
   #v(1fr)
-  *#underline(title)*
+  #underline(title)<scriptie-title>
 
   #v(1em)
   #translations.at(text.lang).written-by
@@ -40,7 +40,7 @@
 #let pa(body) = [#[(#body)]<scriptie-parenthetical>]
 
 #let _speaker(name,..extension) = [
-    #(upper(name) +
+    #([#name<scriptie-speaker-name>] +
     for ext in extension.pos() {
       [ (#ext)]
     })<scriptie-speaker>
@@ -70,7 +70,7 @@ grid.header("",head, repeat:true),
 #let scene(logline) = {
     counter("scriptie-scene").step()
     let number = context numbering("1",counter("scriptie-scene").get().at(0))
-    [*#block(sticky:true, above: 3em, below:2em, width:100%, [#number<scriptie-scene_num_l>#number<scriptie-scene_num_r>#upper(logline)])*]
+    [#block(sticky:true, above: 3em, below:2em, width:100%, [#number<scriptie-scene_num_l>#number<scriptie-scene_num_r>#logline<scriptie-logline>])]
 }
 
 /// Large heading to separate arcs, acts etc.
@@ -81,7 +81,7 @@ grid.header("",head, repeat:true),
 
 /// Transition
 #let transition(trans) = {
-  block(spacing:1em, width:100%, align(right,strong(upper(trans))))
+  block(spacing:1em, width:100%, align(right,[#trans<scriptie-transition>]))
 }
 
 /// Page with just text, optionally with different margins
@@ -94,12 +94,17 @@ grid.header("",head, repeat:true),
   pagebreak(weak:true)
 }
 
+#let _default-cap = (character:true,scene:true,transition:true)
+#let _default-bold = (character:false,scene:true,scene-number:true,transition:true,title:true)
 /// Format the script
 #let script(document,
   size:(x:6in,y:9in),
   margin:(left:3fr,right:2fr,top:1fr,bottom:1fr),
   indent:(character:(2in,4in),parenthetical:(1.5in,2.5in),dialogue:(1in,3.5in)),
   scene-numbering: (left:2cm,right:1cm),
+  capitalize: (:),
+  bold: (:),
+  font:"Courier Prime",
   page-numbering: (dx:-1in,dy:0.8in),
   page-size: ("a4",)
 ) = {
@@ -112,9 +117,11 @@ grid.header("",head, repeat:true),
   }
   indent.character.at(0) -= indent.dialogue.at(0)
   indent.parenthetical.at(0) -= indent.dialogue.at(0)
+  let capitalize = (:.._default-cap, ..capitalize)
+  let bold = (:.._default-bold, ..bold)
 
   set page(margin: margin, ..page-size)
-  let textsettings = (size:12pt, top-edge: 0.8em, bottom-edge: -0.2em, font:("Courier Prime","Courier","DejaVu Sans Mono"), weight:"regular")
+  let textsettings = (size:12pt, top-edge: 0.8em, bottom-edge: -0.2em, font:font, weight:"regular")
   set text(..textsettings)
   set par(leading: 0mm, spacing: 1em)
   show heading: set text(..textsettings)
@@ -122,11 +129,21 @@ grid.header("",head, repeat:true),
   show raw: set text(..textsettings)
   set page(foreground: if page-numbering != none {place(right,context [#counter(page).get().first().],..page-numbering,)})
 
+  let id = it => it
+  let scene_num-sel = selector(<scriptie-scene_num_r>).or(<scriptie-scene_num_l>)
   show <scriptie-parenthetical>: it => block(sticky: true, grid(columns: indent.parenthetical,[],it)) //bug #5296
   show <scriptie-speaker>: it => grid(columns:indent.character,[],it)
   show <scriptie-dialogue>: set grid(columns:indent.dialogue)
   show <scriptie-scene_num_r>: it => if scene-numbering.right != none {place(dx:100%+scene-numbering.right,it)} else {[]}
   show <scriptie-scene_num_l>: it => if scene-numbering.left != none {place(dx:-scene-numbering.left,it)} else {[]}
+  show scene_num-sel:           if       bold.scene-number {strong} else {id}
+  show <scriptie-title>:        if       bold.title        {strong} else {id}
+  show <scriptie-speaker>:      if       bold.character    {strong} else {id}
+  show <scriptie-speaker-name>: if capitalize.character    {upper}  else {id}
+  show <scriptie-logline>:      if       bold.scene        {strong} else {id}
+  show <scriptie-logline>:      if capitalize.scene        {upper}  else {id}
+  show <scriptie-transition>:   if       bold.transition   {strong} else {id}
+  show <scriptie-transition>:   if capitalize.transition   {upper}  else {id}
   show <scriptie-part>: it => {
     pagebreak(weak: true)
     align(center, block(above:1in,below:1in, it))

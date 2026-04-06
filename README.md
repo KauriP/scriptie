@@ -57,9 +57,9 @@ For the web app, you should drop the `.ttf` files (unzipped from the linked down
   - [x] Dialogue
   - [x] Bring all configurable formatting into show command
 - [x] Stabilise hackish version and use the nice commands
-- [ ] Add options for styling
-  - [ ] Which elements should be bolded
-  - [ ] Which elements should be UPPER CASE
+- [x] Add options for styling
+  - [x] Which elements should be bolded
+  - [x] Which elements should be UPPER CASE
   - [x] Which elements should be numbered
   - [x] Customise margins & other geometry
 - [ ] Implement side-by-side dialog
