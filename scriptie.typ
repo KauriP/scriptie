@@ -15,7 +15,7 @@
   *#underline(title)*
 
   #v(1em)
-  by
+  #translations.at(text.lang).written-by
   #v(-0.5em)
   #author.join("\n")
   #v(0.5em)
