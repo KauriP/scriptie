@@ -83,4 +83,3 @@ For the web app, you should drop the `.ttf` files (unzipped from the linked down
 - [ ] Write documentation for all functionality
 - [x] Write examples you are allowed to share
 - [x] Write packaging TOML
-- [ ] Maybe distribute Courier Prime with the package
