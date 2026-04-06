@@ -7,7 +7,7 @@ In addition, Scriptie optionally features a hackish abuse of Typst's syntax for 
 
 # Demo
 ```typst
-#import "@preview/scriptie:0.1.0":*
+#import "@preview/scriptie:0.2.0":*
 #show: qscript
 
 #titlepage(
